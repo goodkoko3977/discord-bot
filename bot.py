@@ -1,13 +1,9 @@
 import discord
+import os
 
-# ここにBotのトークンを入れる（あとで環境変数で設定するため一旦空にする）
-TOKEN = ""
+TOKEN = os.getenv("TOKEN")  # Railwayの環境変数からTOKENを取得
 
-intents = discord.Intents.default()
-intents.reactions = True
-intents.guilds = True
-intents.members = True
-
+intents = discord.Intents.all()  # すべてのIntentを有効化
 client = discord.Client(intents=intents)
 
 @client.event
